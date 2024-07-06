@@ -2,15 +2,17 @@
 
 scooter_rent=# SELECT c.login,
 scooter_rent-#     COUNT(o."inDelivery")
-scooter_rent-# FROM "Orders" AS o
-scooter_rent-# INNER JOIN "Couriers" AS c ON o."courierId" = c.id
+scooter_rent-# FROM  "Couriers" AS c
+scooter_rent-# INNER JOIN "Orders" AS o ON c.id = o."courierId"
 scooter_rent-# WHERE o."inDelivery" = true
 scooter_rent-# GROUP BY c.login;
  login | count
 -------+-------
- Test1 |     2
- Test2 |     4
-(2 rows)
+ Test1 |     4
+ Test2 |     2
+ Test3 |     2
+(3 rows)
+
 
 Задание 2:
 scooter_rent=# SELECT track,
